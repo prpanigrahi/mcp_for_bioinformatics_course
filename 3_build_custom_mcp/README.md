@@ -40,6 +40,25 @@ python3 calculator_fastmcp_openai_sdk_agent.py
 
 ## Interact via chatbot with OpenAI SDK agent configured with running MCP server
 ```sh
+python3 calculator_fastmcp_openai_sdk_agent_chatbot.py 
+```
+
+## Configure the running server in Claude Desktop
+
+Add below configuation in Claude config json file
+
+```json
+{
+  "mcpServers": {
+    "calculator_mcp": {
+      "command": "C:\\Program Files\\nodejs\\npx.cmd",
+      "args": [
+        "mcp-remote",
+        "http://localhost:8081/mcp"
+      ]
+    }
+  }
+}
 
 ```
 
