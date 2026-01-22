@@ -17,18 +17,24 @@ Topics
 - Lab_4: Use Claude Desktop to use a MCP serve (http protocol)
 
 **Build and inspect MCP server using FastMCP**
-- Lab_5: How to build and inspect custom MCP server using FastMCP package
+- Lab_5: 
+  - How to build and inspect custom MCP server using FastMCP package.
+  - Learn stdio mode, test using mcp-inspector
+  - Connect via FastMCP client
+  - Connect via openai sdk agent (nonchat mode, chat mode)
+  - Connect via Claude Desktop
 
-**Connect OpenAI SDK agent with custom MCP server.**
-- Lab_6: Connect the custom build MCP server with openai-sdk agent
+## Lab 6: NGS Quality Control MCP
 
-**Connect Claude Desktop with custom MCP server.**
-- Lab_7: Connect the custom build MCP server with openai-sdk agent
+In Lab 6, we will build and use an MCP server for NGS (Next-Generation Sequencing) quality control. The server leverages FastQC to analyze sequencing data files, automates report extraction, and parses key quality metrics. This enables streamlined, programmatic QC workflows for bioinformatics pipelines, making it easier to integrate quality checks into larger data analysis systems.
 
-**Use cases**
-- Lab_8: NGS QC MCP server
-- Lab_9: Differential gene expression analysis MCP server.
-- Lab_10: Pathway enrichment MCP server
+**Use case:**
+- Automate FastQC runs on raw sequencing data
+- Extract and parse QC metrics for downstream analysis
+- Enable remote or programmatic access to QC tools via MCP and HTTP
+
+- Lab_7: Differential gene expression analysis MCP server.
+- Lab_8: Pathway enrichment MCP server
 
 **Advanced Topics: Deploy MCP server**
 - Lab_11: Dockerize MCP server
