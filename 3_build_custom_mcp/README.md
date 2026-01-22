@@ -1,51 +1,68 @@
-## Build a Calculator MCP server using fastmcp
 
+# Calculator MCP Server Demo with FastMCP
 
-**Run the server in inspector mode and test it**
+This tutorial demonstrates how to build, run, and interact with a simple Calculator MCP server using FastMCP. The server exposes basic arithmetic operations (add, subtract, multiply, divide) as tools, and provides a greeting resource. You will learn how to test the server, run it in different modes, and connect to it using multiple clients—including a FastMCP client, an OpenAI SDK agent, and a chatbot interface.
 
-Note that this MCP inspector works in stdio mode
+---
+
+## 1. Build and Test the Calculator MCP Server
+
+The server is implemented in `calculator_fastmcp.py` using FastMCP. It exposes arithmetic tools and a greeting resource.
+
+### Inspector Mode (Recommended for Testing)
+Inspector mode lets you interactively test your MCP server using stdio protocol:
+
 ```sh
-# We can just give calculator_fastmcp.py also if the fastmcp object is named as mcp
 fastmcp dev calculator_fastmcp.py:mcp
 ```
 
-**Run the server via fastmcp run**
+### Stdio Mode (Programmatic Access)
+You can also run the server in stdio mode for programmatic access. In this mode, you typically connect to the server from the same Python script. So instead run the server in http mode (see below)
+
 ```sh
 fastmcp run calculator_fastmcp.py:mcp
 ```
-This will run the MCP server via stdio mode. So you can not direclty interact with this. You have to write a single python script where you start the server as subprocess and then connect to that in the same script. 
 
-Alternate approach once your testing is over, run in streamable http mode
-as shown below
-
-**Run the server via http protocol**
-
-0.0.0.0 gives access from anywhere. so running a server in windows wsl and u can connect via windows host.
-
-Can give any other number for port
+### HTTP Mode (Expose as a Web Service)
+To make the server accessible over HTTP (e.g., for use with agents or chatbots):
 
 ```sh
-fastmcp run calculator_fastmcp.py:mcp -t streamable-http --host 0.0.0.0 --port 8081 
+fastmcp run calculator_fastmcp.py:mcp -t streamable-http --host 0.0.0.0 --port 8081
 ```
+You can use any available port. `0.0.0.0` allows access from your host system (e.g., if running in WSL).
 
-## Connect to the running MCP server via FastMCP client
+---
+
+## 2. Interacting with the MCP Server
+
+You can connect to the running Calculator MCP server in several ways:
+
+### a) FastMCP Client (Direct Python Client)
+Use the provided client script to call tools directly:
 ```sh
 python3 calculator_fastmcp_client.py
 ```
+This script demonstrates how to call the `add` tool via HTTP.
 
-## Connect to the running MCP server via AI SDK (OpenAI sdk agent)
+### b) OpenAI SDK Agent (LLM-Powered Agent)
+Use the OpenAI SDK agent to interact with the MCP server using natural language:
 ```sh
 python3 calculator_fastmcp_openai_sdk_agent.py
 ```
+This script configures an agent to use the MCP server as a tool provider and answers questions like "what is 5 plus 6?".
 
-## Interact via chatbot with OpenAI SDK agent configured with running MCP server
+### c) Chatbot Interface (Gradio Web UI)
+Launch a web-based chatbot that connects to the MCP server via the OpenAI SDK agent:
 ```sh
-python3 calculator_fastmcp_openai_sdk_agent_chatbot.py 
+python3 calculator_fastmcp_openai_sdk_agent_chatbot.py
 ```
+This provides a chat interface for interactive tool use.
 
-## Configure the running server in Claude Desktop
+---
 
-Add below configuation in Claude config json file
+## 3. Integrate with Claude Desktop
+
+You can also configure Claude Desktop to use your running Calculator MCP server. Add the following to your Claude config JSON:
 
 ```json
 {
@@ -59,9 +76,9 @@ Add below configuation in Claude config json file
     }
   }
 }
-
 ```
 
+---
 
-
+This demo shows the full workflow: building a custom MCP server, testing it, exposing it over HTTP, and connecting to it from multiple clients and agents. Explore the provided scripts for more details and try extending the server with your own tools!
 
