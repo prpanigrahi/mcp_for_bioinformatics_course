@@ -16,24 +16,20 @@ Topics
 - Lab_3: Use Claude Desktop to use a MCP serve (stdio protocol)
 - Lab_4: Use Claude Desktop to use a MCP serve (http protocol)
 
-**Connect to few Bioinformatics MCP server**
-- Lab_5: Claude Desktop to PDB MCP server
-- Lab_6: Claude Desktop to PDB MCP server
-
 **Build and inspect MCP server using FastMCP**
-- Lab_7: How to build and inspect custom MCP server using FastMCP package
+- Lab_5: How to build and inspect custom MCP server using FastMCP package
 
 **Connect OpenAI SDK agent with custom MCP server.**
-- Lab_8: Connect the custom build MCP server with openai-sdk agent
+- Lab_6: Connect the custom build MCP server with openai-sdk agent
 
 **Connect Claude Desktop with custom MCP server.**
-- Lab_9: Connect the custom build MCP server with openai-sdk agent
+- Lab_7: Connect the custom build MCP server with openai-sdk agent
 
 **Use cases**
-- Lab_10: NGS QC MCP server
-- Lab_11: Differential gene expression analysis MCP server.
-- Lab_12: Pathway enrichment MCP server
+- Lab_8: NGS QC MCP server
+- Lab_9: Differential gene expression analysis MCP server.
+- Lab_10: Pathway enrichment MCP server
 
 **Advanced Topics: Deploy MCP server**
-- Lab_13: Dockerize MCP server
-- Lab_14: FastAPI integration
+- Lab_11: Dockerize MCP server
+- Lab_12: FastAPI integration
