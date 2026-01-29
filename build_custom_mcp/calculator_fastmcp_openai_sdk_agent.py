@@ -18,6 +18,13 @@ import asyncio
 # Load environment variables from .env file
 load_dotenv(override=True)
 
+from openai import AsyncOpenAI
+from agents import OpenAIChatCompletionsModel
+client = AsyncOpenAI(base_url="http://localhost:11434/v1")
+model_name = "gpt-oss"
+model = OpenAIChatCompletionsModel(model = model_name,openai_client= client)
+
+
 # Define the main asynchronous function
 async def main():
     # Create an MCP server connection using streamable HTTP protocol
@@ -27,7 +34,7 @@ async def main():
     async with MCPServerStreamableHttp(
         name = "Calculator MCP Server", 
         params={
-            "url": "http://localhost:8081/mcp",
+            "url": "http://localhost:8083/mcp",
             # Allow more time for remote tool responses.
             "timeout": 15,
             "sse_read_timeout": 300
@@ -44,7 +51,8 @@ async def main():
             name="Calculator Assistant",
             instructions="Use the tools to respond to user requests.",
             mcp_servers=[server],
-            model = "gpt-4.1-mini"
+            #model = "gpt-4.1-mini"
+            model = model
         )
         # Call the agent using the Runner to ask a question
         result = await Runner.run(

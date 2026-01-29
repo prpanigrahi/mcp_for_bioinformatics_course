@@ -17,7 +17,7 @@ fastmcp dev calculator_fastmcp.py:mcp
 ```
 
 ### Stdio Mode (Programmatic Access)
-You can also run the server in stdio mode for programmatic access. In this mode, you typically connect to the server from the same Python script. So instead run the server in http mode (see below)
+You can also run the server in stdio mode for programmatic access. In this mode, you typically connect to the server from the same Python script. So instead run the server in http mode (see below). We rarely use this.
 
 ```sh
 fastmcp run calculator_fastmcp.py:mcp

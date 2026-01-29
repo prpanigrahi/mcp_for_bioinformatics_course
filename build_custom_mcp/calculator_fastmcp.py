@@ -15,7 +15,7 @@ from fastmcp import FastMCP
 # Create an instance of FastMCP. The "mcp" object is important when you call the mcp server via http protocol
 # Usuall the url path would be http://localhost:8000/mcp which follows the pattern http://<host>:<port>/<object_name>
 # We can give other name as well like app
-mcp = FastMCP("NGS QC MCP Server")
+mcp = FastMCP("Calculator MCP server")
 
 @mcp.tool()
 def add(a: float, b: float) -> float:
@@ -49,14 +49,16 @@ def greeting(name: str) -> str:
 # and fastmcp will take care of running the server
 
 # To run the server with inspector
+# It will install @modelcontextprotocol/inspector. say yes to proceed.
 # fastmcp dev calculator_fastmcp.py:mcp
 
 # To directly run the server without inspector, via stdio protocol
 # fastmcp run calculator_fastmcp.py:mcp
 
 # To directly run the server without inspector, via streamable http protocol
-# fastmcp run calculator_fastmcp.py:mcp --http --host 0.0.0.0 --port 8000 
+# fastmcp run calculator_fastmcp.py:mcp -t streamable-http --host 0.0.0.0 --port 8083 
 
 if __name__ == "__main__":
-    mcp.run()
+    #mcp.run()
+    mcp.run(transport="http", host="0.0.0.0", port=8081)
 
