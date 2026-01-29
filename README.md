@@ -60,6 +60,11 @@ In Lab 7, you will learn how to package your MCP server and all dependencies (in
 - Share ready-to-use bioinformatics tools with collaborators
 - Integrate Dockerized MCP servers with AI agents and assistants
 
+### Single cell data analysis MCP server
+Refer to https://github.com/prpanigrahi/single_cell_mcp_server
+
+
+
 ---
 By the end of this course, you will be able to build, inspect, deploy, and integrate MCP servers for bioinformatics, using both local and containerized environments, and connect them to popular AI agents and assistants.
 
